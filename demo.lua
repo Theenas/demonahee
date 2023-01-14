@@ -1821,6 +1821,16 @@ end
 function autofarm2()
     CheckLevel()
     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
+        if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+            function ByPass(Pos)
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos 
+            wait(.08)
+            game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
+            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+            end
+            wait(.1)
+            ByPass(CFrameQ)
+        end
         TP2(CFrameQ)
         CheckLevel()
         if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
@@ -2757,8 +2767,14 @@ function Hop()
         end
     end
     Teleport()
-end                   
-
+end              
+     
+function ByPass(Pos)
+   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos 
+   wait(.08)
+   game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
+   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+end
 
 function tweenTP()
     if true then
@@ -2889,7 +2905,13 @@ tap3:AddToggle("Teleport", false, function(v)
         TP2(game:GetService("Players")["LocalPlayer"].Character.HumanoidRootPart.CFrame)
     end
 end)
+
+tap4:AddButton("Bypass",function()
+    tweenTP()
+end)
+
 local tap4 = Library:AddTab("Misc")
+
 tap4:AddButton("Hop Server",function()
     game.StarterGui:SetCore("SendNotification", {
         Title = "Notification System", 
