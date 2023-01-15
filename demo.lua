@@ -2468,7 +2468,7 @@ tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra"}, function(v)
     end
 end)
 
-tap1:AddToggle("Bypass", false, function(v)
+tap1:AddToggle("Bypass", true, function(v)
     Bypass = v
 end)
 tap1:AddToggle("Set Spawn Home", true, function(v)
