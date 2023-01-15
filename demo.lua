@@ -2906,10 +2906,6 @@ tap3:AddToggle("Teleport", false, function(v)
     end
 end)
 
-tap4:AddButton("Bypass",function()
-    tweenTP()
-end)
-
 local tap4 = Library:AddTab("Misc")
 
 tap4:AddButton("Hop Server",function()
