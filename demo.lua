@@ -1821,16 +1821,6 @@ end
 function autofarm2()
     CheckLevel()
     if game:GetService("Players").LocalPlayer.PlayerGui.Main.Quest.Visible == false then
-        if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
-            function ByPass(Pos)
-            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos 
-            wait(.08)
-            game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
-            game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
-            end
-            wait(.1)
-            ByPass(CFrameQ)
-        end
         TP2(CFrameQ)
         CheckLevel()
         if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude <= 10 then
@@ -1887,7 +1877,6 @@ task.spawn(function()
 		end
 	end
 end)
-
 spawn(function()
     while task.wait() do
         pcall(function()
@@ -2265,7 +2254,24 @@ spawn(function()
         end
     end)
 end)
-
+spawn(function()
+    pcall(function()
+        while task.wait() do
+            if Bypass then
+                if (CFrameQ.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude > 1000 then
+                    function ByPass(Pos)
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos 
+                    wait(.08)
+                    game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid"):ChangeState(15)
+                    game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("SetSpawnPoint")
+                    end
+                    wait(.1)
+                    ByPass(CFrameQ)
+                end
+            end
+        end
+    end)
+end)
 local plr = game.Players.LocalPlayer
 local CbFw = debug.getupvalues(require(game.Players.LocalPlayer.PlayerScripts.CombatFramework))
 local CbFw2 = CbFw[2]
@@ -2462,6 +2468,9 @@ tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra"}, function(v)
     end
 end)
 
+tap1:AddToggle("Bypass", false, function(v)
+    Bypass = v
+end)
 tap1:AddToggle("Set Spawn Home", true, function(v)
     AutoSetSpawn = v
 end)
@@ -2470,7 +2479,7 @@ tap1:AddToggle("Fast Attack", true, function(v)
     Fast_Custom = v
 end)
 
-tap1:AddToggle("Magnet", true, function(v)
+tap1:AddToggle("BringMob", true, function(v)
     MagnetMain = v
 end)
 
