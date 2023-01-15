@@ -2366,7 +2366,7 @@ function AttackNoCD(Num)
                         for i,CombatFrameworkR in pairs(CbFw) do
                             pcall(function()
                                 if i == 2 then
-                                    CombatFrameworkR.activeController.increment = 4
+                                    CombatFrameworkR.activeController.increment = 3
                                     CombatFrameworkR.activeController.hitboxMagnitude = 55
                                     CombatFrameworkR.activeController.timeToNextAttack = tick()
                                     game:GetService("VirtualUser"):CaptureController()
@@ -2398,7 +2398,7 @@ spawn(function()
             local Hits = STOPRL.getBladeHits(b,c,d)
             if Hits then
                 STOP.play = function() end
-                a:Play(15.20,15.20,15.20)
+                a:Play(15.25,15.25,15.25)
                 func(Hits)                
                 STOP.play = shared.cpc
                 wait(0.5)
@@ -2406,7 +2406,7 @@ spawn(function()
             end         
             if Hits then
                 STOP.play = function() end
-                a:Play(15.20,15.20,15.20)
+                a:Play(15.25,15.25,15.25)
                 func(Hits)
                 STOP.play = shared.cpc
                 wait(0.5)
@@ -2460,7 +2460,7 @@ end
 
 tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra"}, function(v)
     if v == "Default" then
-        FastWait = 0.5
+        FastWait = 0.10
     elseif v == "Ultra" then
         FastWait = 1 / 0 / 1 / 0
     else
