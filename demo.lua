@@ -2464,7 +2464,7 @@ tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra","Mobile"}, function(v)
     elseif v == "Ultra" then
         FastWait = 1 / 0 / 1 / 0
     elseif v == "Mobile" then
-        FastWait = 0.25
+        FastWait = 1 / 0
     else
         error("FastAttack Error")
     end
