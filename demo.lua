@@ -2458,11 +2458,13 @@ if FastWait == nil then
     FastWait = 0.1
 end
 
-tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra"}, function(v)
+tap1:AddDropdown("Fast Attack Mode ", {"Default","Ultra","Mobile"}, function(v)
     if v == "Default" then
-        FastWait = 0.10
+        FastWait = 0.5
     elseif v == "Ultra" then
         FastWait = 1 / 0 / 1 / 0
+    elseif v == "Mobile" then
+        FastWait = 0.25
     else
         error("FastAttack Error")
     end
