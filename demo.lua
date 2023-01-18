@@ -2401,7 +2401,7 @@ spawn(function()
                 a:Play(15.25,15.25,15.25)
                 func(Hits)                
                 STOP.play = shared.cpc
-                wait(0.5)
+                wait(0.10)
                 a:Stop()
             end         
             if Hits then
@@ -2409,7 +2409,7 @@ spawn(function()
                 a:Play(15.25,15.25,15.25)
                 func(Hits)
                 STOP.play = shared.cpc
-                wait(0.5)
+                wait(0.10)
                 a:Stop()
             end      
         end
